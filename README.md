@@ -11,6 +11,13 @@ Steps
  type "php artisan serve " in the terminal/command prompt.
  5.Open your beowser and copy any of the following url and paste it in the url section.
 
-http://localhost:8000/api/stocks ----------- This will get all the stock details in JSON format.
-http://localhost:8000/api/stocks/up -------- All the details with stocks trending UP
-http://localhost:8000/api/stocks/down ------ All the details with stocks trending Down
+http://localhost:8000/api/stocks  
+(all the stock details in JSON format)
+
+
+http://localhost:8000/api/stocks/up  
+(All the details with stocks trending UP)
+
+
+http://localhost:8000/api/stocks/down 
+(All the details with stocks trending Down)
