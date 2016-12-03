@@ -1,0 +1,50 @@
+body{
+    background-color: #456e9e;
+    color: #ffffff;
+}
+th{
+  border-top: 3px solid #96cfea !important ;
+}
+td{
+  border-top: 1px solid #96cfea !important ;
+}
+.container{
+    width: 80%;
+    padding-top: 4%;
+}
+.baner{
+    padding: 1px;
+    margin:0 !important;
+    background-color: #15a5fa;
+    border-radius: 10px 10px 0px 0px;
+}
+.refresh{
+  padding-top:22px;
+  padding-bottom: 11px;
+}
+.refresh p{
+  float: right;
+  padding-left: 3px;
+}
+#content{
+    min-height : 300px;
+    background-color: #2b3f59;
+    border-radius: 0px 0px 10px 10px;
+}
+.loader {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    border: 10px solid #96cfea; /* small */
+    border-top: 10px solid #15a5fa; /* big */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
