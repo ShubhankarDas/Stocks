@@ -1,5 +1,5 @@
 
-Steps
+Steps to run laravel and access the API
  1. Get your machine set up with laravel. follow the steps in https://laravel.com/docs/5.3
  2. Downlowd the Zip form github and extract it in a folder in your drive.
  3. Open the folder in command prompt. 
@@ -21,3 +21,13 @@ http://localhost:8000/api/stocks/up
 
 http://localhost:8000/api/stocks/down 
 (All the details with stocks trending Down)
+
+
+***WIth Vue Update***
+
+Steps to run the stock webpage-
+1. Install laravel 5.3 on your machine. (Follow the steps given in the start of this page) And download the git repository.
+2. Open the folder in command line/Terminal and type { npm install } and hit enter. (This will install the dependencies mentioned in package.json)
+3. Type { php artisan serve } to start the server.
+4. Open the Internet browser and visit http://localhost:8000/stocks
+
