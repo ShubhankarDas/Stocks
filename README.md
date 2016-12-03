@@ -26,8 +26,9 @@ http://localhost:8000/api/stocks/down
 ***WIth Vue Update***
 
 Steps to run the stock webpage-
+
 1. Install laravel 5.3 on your machine. (Follow the steps given in the start of this page) And download the git repository.
-2. Open the folder in command line/Terminal and type { npm install } and hit enter. (This will install the dependencies mentioned in package.json)
-3. Type { php artisan serve } to start the server.
+2. Open the folder in command line/Terminal and type ` npm install ` and hit enter. (This will install the dependencies mentioned in package.json)
+3. Type ` php artisan serve ` to start the server.
 4. Open the Internet browser and visit http://localhost:8000/stocks
 
