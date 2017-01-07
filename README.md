@@ -12,65 +12,84 @@ Using laravel and Vue.js, I have created a small application which scarpes data 
  * Vagrant
  * PHP >= 5.6
  * Composer
+ * Git
  
 ## Steps
 
- 1. Clone or download this repository to your local dirve. 
+ 1. Install [Git](https://git-scm.com/downloads).
+ 
+ 2. Clone or download this repository to your local dirve. 
    Example -
    
    `G:\Projects\Websites\Code\Stocks`
    
- 2. Install PHP 
+ 3. Install PHP 
   * If you are using [WampServer](http://www.wampserver.com/) or [Xampp](https://www.apachefriends.org/index.html) then make sure you are using php version >= 5.6. 
   
- 3. Install [Composer](https://getcomposer.org/download/).
+ 4. Install [Composer](https://getcomposer.org/download/).
  
- 4. Creat an empty folder named `vendors` in the downloaded `Stocks` folder.
+ 5. Creat an empty folder named `vendors` in the downloaded `Stocks` folder.
  
- 5. Open the `Stocks` folder in the terminal.
+ 6. Open the `Stocks` folder in the terminal.
    * For Windows - 
       Open the folder in the Explorer and Hold Shift key and right click on the folder and select "Open Command Window Here".
    * For Linux - 
        Open terminal and then type `cd ` and Drag the folder to the terminal and hit enter.
        
- 6. Install Laravel with `composer global require "laravel/installer"` command in the terminal.
+ 7. Install Laravel with `composer global require "laravel/installer"` command in the terminal.
 
- 7. Now install the project dependencies by using `composer install`.
+ 8. Now install the project dependencies by using `composer install`. This will install plugins like vue.js, symphony,etc which is being used by this laravel project.
  
- 8. Install Homestead 
+ 9. After this we need to set up [Homestead](https://laravel.com/docs/5.3/homestead) Environment. For this you need to install-
+   * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)  >=v5.1
+   * [Vagrant](https://www.vagrantup.com/downloads.html)
+   
+   You can even follow the [laravel documentation](https://laravel.com/docs/5.3/homestead) and meet us in step 15.
+   
+ 10. Now add laravel/homestaed to your vagrant installation from your terminal using `vagrant box add laravel/homestead` command.
+ If this command fails, make sure your Vagrant installation is up to date.
  
+ 11. After adding the laravel/homestead, now you need to add Homestaed repository. Concider cloning the Homestead repository. Open your terminal and follow the commands - 
  
+ ```
+  cd ~
+  
+  git clone https://github.com/laravel/homestead.git Homestead
+ ```
  
-Steps to run laravel and access the API
- 1. Get your machine set up with laravel. follow the steps in https://laravel.com/docs/5.3
- 2. Downlowd the Zip form github and extract it in a folder in your drive.
- 3. Open the folder in command prompt. 
- For Windows-
- Hold Shift key and right click on the folder and select "Open Command Window Here".
- For Linux-
- Open terminal and then type "cd ". Drag the folder to the terminal and hit enter.
- 4. Now that you have opened the folder in the terminal/ command prompt, you can start the server.
- type "php artisan serve " in the terminal/command prompt.
- 5.Open your beowser and copy any of the following url and paste it in the url section.
+ 12. Once you have cloned the Homestead repository, run the bash init.sh command from the Homestead directory to create the Homestead.yaml configuration file. The Homestead.yaml file will be placed in the ~/.homestead hidden directory:
+ ```
+  // Mac / Linux...
+  bash init.sh
 
-http://localhost:8000/api/stocks  
-(all the stock details in JSON format)
+  // Windows...
+  init.bat
+ ```
+ 13. Now you need to make some changes in the `~/.homestead/Homestead.yaml` file. Open this file using notepad or any text editor.
+   * Under the 'folders' key change `map` property to the parent directory of where you have cloned/downloaded this repository.
+   
+   ```
+   folders:
+    - map: G:\Projects\Websites\Code 
+      to: /home/vagrant/Code
+      `
+      
+   * Under the `sites` key - 
+   `sites:
+    - map: homestead.app
+      to: /home/vagrant/Code/Stocks/public
+   ```
+      
+ 14. Now you need to add the domains in your `HOST` file of your machine.  On Mac and Linux, this file is located at `/etc/hosts`. On Windows, it is located at  `C:\Windows\System32\drivers\etc\hosts`. The lines you add to this file will look like the following:
+  `192.168.10.10  homestead.app`
+  
+ 15. Make sure the project is updated. For this run `composer update` from your `Stocks` directory.
+  
+ 16. To launch Homestead, run the `vagrant up` command from your Homestead directory. Now open your browser and go to `homestead.app` and you should see the laravel home page.
+  
+## Sites 
 
-
-http://localhost:8000/api/stocks/up  
-(All the details with stocks trending UP)
-
-
-http://localhost:8000/api/stocks/down 
-(All the details with stocks trending Down)
-
-
-***WIth Vue Update***
-
-Steps to run the stock webpage-
-
-1. Install laravel 5.3 on your machine. (Follow the steps given in the start of this page) And download the git repository.
-2. Open the folder in command line/Terminal and type ` npm install ` and hit enter. (This will install the dependencies mentioned in package.json)
-3. Type ` php artisan serve ` to start the server.
-4. Open the Internet browser and visit http://localhost:8000/stocks
-
+* http://homestead.app/api/stocks  (all the stock details in JSON format)
+* http://homestead.app/api/stocks/up  (All the details with stocks trending UP)
+* http://homestead.app/api/stocks/down (All the details with stocks trending Down)
+* http://homestead.app/stocks  (All the details in tabular format)
